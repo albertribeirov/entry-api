@@ -1,0 +1,2 @@
+INSERT INTO user  (name, login, password) values ('Albert', 'albertribeiro', '$2a$10$bNoXMfNNnLrlnNmkQvLk7eUnGpEoJ4UeLC.uTOfWKim.yTUpCLjvi');
+INSERT INTO user  (name, login, password) values ('Carlos Rafael', 'carlosrafael', '$2a$10$bNoXMfNNnLrlnNmkQvLk7eUnGpEoJ4UeLC.uTOfWKim.yTUpCLjvi');
