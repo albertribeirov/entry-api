@@ -1,7 +1,9 @@
 package br.com.techlab.controller;
 
+import br.com.techlab.dto.UserDTO;
 import br.com.techlab.model.User;
 import br.com.techlab.repository.UserRepository;
+import br.com.techlab.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,9 +20,12 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private UserService userService;
+
     @GetMapping
-    public List<User> getUser() {
-        return userRepository.findAll();
+    public List<UserDTO> getUser() {
+        return userService.findAll();
     }
 
     @PostMapping

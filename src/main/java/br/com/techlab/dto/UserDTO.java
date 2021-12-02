@@ -1,5 +1,7 @@
 package br.com.techlab.dto;
 
+import br.com.techlab.model.User;
+
 import java.io.Serializable;
 
 public class UserDTO implements Serializable {
@@ -10,9 +12,9 @@ public class UserDTO implements Serializable {
     public UserDTO() {
     }
 
-    public UserDTO(Long id, String login) {
-        this.id = id;
-        this.login = login;
+    public UserDTO(User user) {
+        this.id = user.getId();
+        this.login = user.getLogin();
     }
 
     public Long getId() {

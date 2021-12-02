@@ -1,5 +1,6 @@
 package br.com.techlab.model;
 
+import br.com.techlab.dto.UserDTO;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
