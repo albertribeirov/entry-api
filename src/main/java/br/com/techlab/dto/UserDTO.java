@@ -1,6 +1,7 @@
 package br.com.techlab.dto;
 
 import br.com.techlab.model.User;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 import java.io.Serializable;
 

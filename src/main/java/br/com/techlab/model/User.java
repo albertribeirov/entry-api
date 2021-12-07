@@ -1,10 +1,14 @@
 package br.com.techlab.model;
 
-import br.com.techlab.dto.UserDTO;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -111,4 +115,5 @@ public class User implements Serializable, UserDetails {
     public int hashCode() {
         return login.hashCode();
     }
+
 }

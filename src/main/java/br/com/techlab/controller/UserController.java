@@ -18,9 +18,6 @@ import java.util.Optional;
 public class UserController {
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
     private UserService userService;
 
     @GetMapping
@@ -30,27 +27,21 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User userForm) {
-        User user = userRepository.save(userForm);
+        User user = userService.save(userForm);
         return ResponseEntity.ok(user);
     }
 
     @PutMapping
     public ResponseEntity<User> updateUser(@PathParam("id") Long id, @RequestBody User userForm) {
-        Optional<User> userFromDb = userRepository.findById(id);
-
-        if (userFromDb.isPresent()) {
-            User user = userRepository.save(userFromDb.get());
-            return ResponseEntity.ok(user);
-        }
-        return ResponseEntity.notFound().build();
+        return userService.updateUser(id, userForm);
     }
 
     @DeleteMapping
     public ResponseEntity<Object> deleteUser(@PathParam("id") Long id) {
-        Optional<User> userFromDb = userRepository.findById(id);
+        Optional<User> userFromDb = userService.findById(id);
 
         if (userFromDb.isPresent()) {
-            userRepository.delete(userFromDb.get());
+            userService.delete(userFromDb.get());
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.notFound().build();
