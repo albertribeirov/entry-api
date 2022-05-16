@@ -17,11 +17,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/auth")
 public class AuthenticationController {
 
-    @Autowired
     private AuthenticationManager authenticationManager;
 
+    private final TokenService tokenService;
+
+    public AuthenticationController(TokenService tokenService) {
+        this.tokenService = tokenService;
+    }
+
     @Autowired
-    private TokenService tokenService;
+    public AuthenticationController(AuthenticationManager authenticationManager, TokenService tokenService) {
+        this.authenticationManager = authenticationManager;
+        this.tokenService = tokenService;
+    }
 
     @PostMapping
     public ResponseEntity<?> authenticate(@RequestBody AuthForm authForm) {

@@ -34,7 +34,7 @@ public class User implements Serializable, UserDetails {
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private List<Profile> profiles = new ArrayList<>();
+    private final List<Profile> profiles = new ArrayList<>();
 
     public User() {
     }

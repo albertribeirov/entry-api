@@ -2,7 +2,6 @@ package br.com.techlab.controller;
 
 import br.com.techlab.dto.UserDTO;
 import br.com.techlab.model.User;
-import br.com.techlab.repository.UserRepository;
 import br.com.techlab.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +16,11 @@ import java.util.Optional;
 @CrossOrigin("localhost:3000")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping
     public List<UserDTO> getUser() {
